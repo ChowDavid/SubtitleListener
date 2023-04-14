@@ -15,7 +15,7 @@ public class Listener
     public static void main(String[] args) throws SocketException {
 
         if (args.length<3){
-            System.err.println("Please provide port line hostname");
+            System.err.println("Please provide [port] [line] [sender IP]");
             System.exit(1);
         }
 
@@ -38,9 +38,7 @@ public class Listener
 
                     List<String> outputList = allList.subList(allList.size()-line, allList.size());
                     FileUtils.writeLines(outputFile,outputList);
-
-                    //FileUtils.writeStringToFile(outputFile,text,"UTF-8",true);
-                    //FileUtils.writeStringToFile(outputFile,"\n","UTF-8",true);
+                    DrawText.draw(outputList);
                 }
                 System.out.println(text);
             } catch (UnknownHostException ex) {
